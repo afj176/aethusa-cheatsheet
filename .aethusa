@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Aethusa
+# Colors Cheatsheet
+# 
+# inspired by `Print all 256 colors for testing TERM or for a quick reference`
+# http://www.commandlinefu.com/commands/view/6533/print-all-256-colors-for-testing-term-or-for-a-quick-reference
+
+colors=(30 59 60 67 88 102 113 116 117 123 144 173 176 179 186 188 198 210 222 228 231)
+hex=('#008786' '#5F5F5F' '#5F6084' '#5D88AC' '#8A0007' '#878787' '#81D670' '#81D7D6' '#81D8FB' '#7DFFFE' '#AFAE8B' '#DA8665' '#DA88D2' '#D9AE6B' '#D7D691' '#D7D7D7' '#FF0083' '#FF8689' '#FFD692' '#FFFE98' '#FFFFFF')
+
+# Create Alis to display Tput colors
+alias aethusa='echo "Aethusa Colors Cheatsheet";( x=`tput op` y=`printf %$((${COLUMNS}-5))s`;index=0;for i in ${colors[@]};do o=00$i;echo -e \$\(tput setaf ${o}\) "${hex[${index}]}" `tput setaf $i; index=++;tput setab $i`${y// /=}$x;done; )'
+
